@@ -27,6 +27,7 @@ jobs:
     - run: npm install -g
     - run: |
         mkdir -p testdir
+        touch ./testdir/debug.log
         azurite -- -s -l ./testdir -d ./testdir/debug.log &
         sleep 5
         cat ./testdir/debug.log
