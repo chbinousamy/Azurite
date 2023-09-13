@@ -34,5 +34,4 @@ jobs:
         mkdir -p testdir
         azurite -- -s -l ./testdir -d ./testdir/debug.log &
         sleep 5
-        azurite stop
         cat ./azurite/debug.log
