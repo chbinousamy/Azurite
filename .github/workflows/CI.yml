@@ -5,6 +5,10 @@ name: CI Workflow
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
 on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
   workflow_dispatch:
     # Inputs the workflow accepts.
     inputs:
@@ -39,5 +43,8 @@ jobs:
     - run: npm install -g
     - run: |
         mkdir -p testdir
-        azurite -s -l ./testdir -d ./testdir/debug.log
+        start azurite -- -s -l ./testdir -d ./testdir/debug.log &
+        azurite status &
+        sleep 5
+        azurite stop
         cat ./azurite/debug.log
