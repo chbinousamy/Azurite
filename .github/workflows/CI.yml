@@ -38,6 +38,6 @@ jobs:
     - run: npm run build
     - run: npm install -g
     - run: |
-        mkdir testdir
-        azurite -s -l ./azurite -d ./azurite/debug.log
+        mkdir -p testdir
+        azurite -s -l ./testdir -d ./testdir/debug.log
         cat ./azurite/debug.log
