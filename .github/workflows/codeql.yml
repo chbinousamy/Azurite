@@ -2,6 +2,8 @@ name: "Code scanning - action"
 
 on:
   workflow_dispatch:
+  push:
+    branches: [ "main", "wip" ]
   pull_request:
     branches: [ "main", "wip" ]
   schedule:
